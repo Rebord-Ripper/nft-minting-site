@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 250;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: 107, 70, 193;
+  --secondary-color: 139, 92, 246;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Override wallet adapter button styles */
+.wallet-adapter-button {
+  @apply rounded-md px-4 py-2 text-white font-semibold transition-colors duration-200 !important;
+  background: rgb(var(--primary-color)) !important;
+}
+
+.wallet-adapter-button:hover {
+  background: rgb(var(--secondary-color)) !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  @apply bg-opacity-90 !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  @apply rounded-xl !important;
+}
+
+/* Custom animation for minting process */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+}
+
+.progress-animation {
+  animation: progress 1s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b8b8b8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
